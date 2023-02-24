@@ -1,4 +1,4 @@
-import {trash} from 'phosphor-react';
+import {trash} from 'cd';
 import styles from "./Comment.module.css";
 
 export function Comment() {
