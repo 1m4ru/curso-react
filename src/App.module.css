@@ -10,6 +10,9 @@
 }
 
 @media (max-width: 768px) {
+  html{
+    font-size: 14px ;
+  }
   .wrapper {
     grid-template-columns: 1fr;
   }
