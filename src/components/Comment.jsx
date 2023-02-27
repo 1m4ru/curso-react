@@ -4,7 +4,7 @@ import styles from "./Comment.module.css";
 export function Comment() {
   return (
     <div className={styles.comment}>
-      <Avatargi src="https://github.com/1m4ru.png" alt="" />
+      <Avatar hasBorder={false} src="https://github.com/1m4ru.png" alt="" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -15,15 +15,13 @@ export function Comment() {
                 Cerca de 1h atrás
               </time>
             </div>
-            <button title="Deletar comentário">
-              Excluir
-            </button>
+            <button title="Deletar comentário">Excluir</button>
           </header>
           <p>Muito bom Devo, parabéns!!</p>
         </div>
         <footer>
           <button>
-           {/* <ThumbsUp /> */}
+            {/* <ThumbsUp /> */}
             Aplaudir <span>20</span>
           </button>
         </footer>
