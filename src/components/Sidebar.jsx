@@ -1,3 +1,4 @@
+import { Avatar } from "./avatar";
 import styles from "./Sidebar.module.css";
 
 export function Sidebar() {
@@ -9,8 +10,8 @@ export function Sidebar() {
         alt=""
       />
       <div className={styles.profile}>
-        <img className={styles.avatar} 
-        src="https://images.unsplash.com/photo-1677026538602-35a9bf7605dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=30" alt="" />
+        <Avatar src="https://images.unsplash.com/photo-1677026538602-35a9bf7605dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=30" />
+        
         <strong>Fernanda Lima</strong>
         <span> Fotografa</span>
       </div>
