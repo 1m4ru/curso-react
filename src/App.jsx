@@ -17,16 +17,14 @@ const posts = [
       role: 'Dev Front End'
     },
     content: [
-       'Fala galeraa 👋', 
-        
-          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz',
-          'no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
-          '👉{" "}',
-          <a href=""> jane.design/doctorcare </a>
-          <a href=""> #novoprojeto </a> 
-          <a href="">#nlw </a>{" "}
-           #rocketseat
-        
+       {type: 'paragraph', content: 'Fala galeraa 👋'}, 
+       {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz'}, 
+       {type: 'paragraph', content:  'no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },  
+       {type: 'paragraph', content:   '👉{" "}' },  
+       {type: 'link', content:   'jane.design/doctorcare' },  
+          
+          
+         
     ],
   },
 ]
