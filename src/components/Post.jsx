@@ -2,17 +2,17 @@ import { Avatar } from "./avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post(props) {
+export function Post({ author }) {
  
   return (
     <article className={styles.Post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={props.author.avatarUrl}
+          <Avatar src={author.avatarUrl}
           />
           <div className={styles.authorInfo}>
-            <strong>Fernanda Lima</strong>
-            <span>Fotografa</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
