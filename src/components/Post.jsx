@@ -1,15 +1,18 @@
+import {format, formatDistanceToNow} from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
 import { Avatar } from "./avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
 export function Post({ author, publishiedAt }) {
- const publishedDateFormatted = new Intl.DateTimeFormat('pt-BR', {
-  day: '2-digit',
-  month: 'long',
-  hour: '2-digit',
-  minute: '2-digit',
- }).format(publishiedAt);
+ const publishedDateFormatted = format(publishiedAt, "d 'de' LLLL  'às' HH:mm'h'", {
+  locale: ptBR,
+ } )
 
+ const publishedDateRelativeToNow = formatDistanceToNow(publishiedAt, {
+    locale: ptBR,
+    addSuffix: true,
+ })
 
   return (
     <article className={styles.Post}>
@@ -23,8 +26,8 @@ export function Post({ author, publishiedAt }) {
           </div>
         </div>
 
-        <time title="11 de Maio as 08:13" dateTime="2022-05-11 08:13:08">
-        {publishedDateFormatted}
+        <time title={publishedDateFormatted} dateTime="2022-05-11 08:13:08">
+        {publishedDateRelativeToNow}
         </time>
       </header>
 
