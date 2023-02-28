@@ -2,12 +2,13 @@ import { Avatar } from "./avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+export function Post(props) {
+ 
   return (
     <article className={styles.Post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://images.unsplash.com/photo-1677026538602-35a9bf7605dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=30"
+          <Avatar src={props.author.avatarUrl}
           />
           <div className={styles.authorInfo}>
             <strong>Fernanda Lima</strong>
@@ -21,19 +22,7 @@ export function Post() {
       </header>
 
       <div className={styles.content}>
-        <p> Fala galeraa 👋 </p>
-        <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
-          👉{" "}
-        </p>
-        <p>
-          <a href=""> jane.design/doctorcare </a>
-        </p>
-        <p>
-          <a href=""> #novoprojeto </a> <a href="">#nlw </a>{" "}
-          <a href=""> #rocketseat </a>
-        </p>
+        
       </div>
 
       <form className={styles.commentForm}>
