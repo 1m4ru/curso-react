@@ -53,6 +53,7 @@ function App() {
           {posts.map(post => {
             return (
             <Post 
+             hey={post.id}
              author={post.author}
              content={post.content}
             publishiedAt={post.publishiedAt}
