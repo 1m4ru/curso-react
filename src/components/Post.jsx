@@ -6,7 +6,9 @@ import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
 export function Post({ author, publishiedAt, content }) {
-  const [comments, setComments] = useState([1, 2]);
+  const [comments, setComments] = useState([
+    'Post muito bacana, hein?!'
+     ]);
 
   const publishedDateFormatted = format(
     publishiedAt,
@@ -71,7 +73,7 @@ export function Post({ author, publishiedAt, content }) {
       </form>
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment />
+          return <Comment content={comment} />
         })}
         
       </div>
