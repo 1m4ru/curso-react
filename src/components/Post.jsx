@@ -4,7 +4,7 @@ import { Avatar } from "./avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post({ author, publishiedAt }) {
+export function Post({ author, publishiedAt, content }) {
   const publishedDateFormatted = format(
     publishiedAt,
     "d 'de' LLLL  'às' HH:mm'h'",
@@ -37,7 +37,15 @@ export function Post({ author, publishiedAt }) {
         </time>
       </header>
 
-      <div className={styles.content}></div>
+      <div className={styles.content}>
+        {content.map(line => {
+          if (line.type === 'paragraph'){
+            return <p>{line.content}</p>
+          } else if (line.type === 'link') {
+            return <p><a href="#">{line.content}</a></p>
+          }
+        })}
+      </div>
 
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
