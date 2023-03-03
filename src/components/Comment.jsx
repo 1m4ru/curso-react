@@ -1,7 +1,11 @@
 import { Avatar } from "./avatar";
 import styles from "./Comment.module.css";
 
-export function Comment({ content }) {
+export function Comment({ content, deleteComment }) {
+  function handleDeleteComment() {
+    console.log("deletar");
+     deleteComment(content);
+  }
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/1m4ru.png" alt="" />
@@ -15,13 +19,14 @@ export function Comment({ content }) {
                 Cerca de 1h atrás
               </time>
             </div>
-            <button title="Deletar comentário">Excluir</button>
+            <button onClick={handleDeleteComment} title="Deletar comentário">
+              Excluir
+            </button>
           </header>
-          <p>{ content }</p>
+          <p>{content}</p>
         </div>
         <footer>
           <button>
-            {/* <ThumbsUp /> */}
             Aplaudir <span>20</span>
           </button>
         </footer>
