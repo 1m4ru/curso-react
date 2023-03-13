@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "phosphor-react": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/date-fns": "^2.6.0"
   }
 }

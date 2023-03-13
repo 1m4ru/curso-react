@@ -1,10 +1,23 @@
-import {trash} from 'cd';
+import { useState } from "react";
+import { Avatar } from "./avatar";
 import styles from "./Comment.module.css";
 
-export function Comment() {
+export function Comment({ content, deleteComment }) {
+  const [likeCount, setLikeCount] = useState(0);
+  function handleDeleteComment() {
+    console.log("deletar");
+     deleteComment(content);
+  }
+
+  function hadleLikeComment() {
+    setLikeCount((state) => {
+      return state + 1;
+    });
+
+  }
   return (
     <div className={styles.comment}>
-      <img src="https://github.com/1m4ru.png" alt="" />
+      <Avatar hasBorder={false} src="https://github.com/1m4ru.png" alt="" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -15,16 +28,15 @@ export function Comment() {
                 Cerca de 1h atrás
               </time>
             </div>
-            <button title="Deletar comentário">
-              <trash />
+            <button onClick={handleDeleteComment} title="Deletar comentário">
+              Excluir
             </button>
           </header>
-          <p>Muito bom Devo, parabéns!!</p>
+          <p>{content}</p>
         </div>
-        <footer>
+        <footer onClick={hadleLikeComment}>
           <button>
-            <thumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
