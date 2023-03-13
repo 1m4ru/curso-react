@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Avatar } from "./avatar";
 import styles from "./Comment.module.css";
 
 export function Comment({ content, deleteComment }) {
+  const [likeCount, setLikeCount] = useState(0);
   function handleDeleteComment() {
     console.log("deletar");
      deleteComment(content);
+  }
+
+  function hadleLikeComment() {
+    setLikeCount(likeCount +1);
+
   }
   return (
     <div className={styles.comment}>
@@ -25,9 +32,9 @@ export function Comment({ content, deleteComment }) {
           </header>
           <p>{content}</p>
         </div>
-        <footer>
+        <footer onClick={hadleLikeComment}>
           <button>
-            Aplaudir <span>20</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>

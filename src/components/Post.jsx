@@ -42,6 +42,8 @@ export function Post({ author, publishiedAt, content }) {
     setComments(commentWithoutDeleteOne);
   }
 
+  const isNewCommentEmpty = newCommentText.length === 0;
+
   const publishedDateRelativeToNow = formatDistanceToNow(publishiedAt, {
     locale: ptBR,
     addSuffix: true,
@@ -94,7 +96,9 @@ export function Post({ author, publishiedAt, content }) {
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+            </button>
         </footer>
       </form>
       <div className={styles.commentList}>
