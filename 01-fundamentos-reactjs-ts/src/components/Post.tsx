@@ -16,20 +16,25 @@ interface Content{
   content: string;
 }
 
-interface postProps {
+export interface PostType {
+  id: number;
   author: Author;
   publishiedAt: Date;
   content: Content[];
+}
+
+interface postProps {
+post: PostType;
 
 }
 
-export function Post({ author, publishiedAt, content} : postProps) {
+export function Post({ post} : postProps) {
   const [comments, setComments] = useState(["Post muito bacana, hein?!"]);
 
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
-    publishiedAt,
+    post.publishiedAt,
     "d 'de' LLLL  'às' HH:mm'h'",
     {
       locale: ptBR,
@@ -62,7 +67,7 @@ export function Post({ author, publishiedAt, content} : postProps) {
 
   const isNewCommentEmpty = newCommentText.length === 0;
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishiedAt, {
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishiedAt, {
     locale: ptBR,
     addSuffix: true,
   });
@@ -71,23 +76,23 @@ export function Post({ author, publishiedAt, content} : postProps) {
     <article className={styles.Post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={author.avatarUrl} />
+          <Avatar src={post.author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{post.author.name}</strong>
+            <span>{post.author.role}</span>
           </div>
         </div>
 
         <time
           title={publishedDateFormatted}
-          dateTime={publishiedAt.toISOString()}
+          dateTime={post.publishiedAt.toISOString()}
         >
           {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        {content.map((line) => {
+        {post.content.map((line) => {
           if (line.type === "paragraph") {
             return <p key={line.content}>{line.content}</p>;
           } else if (line.type === "link") {
