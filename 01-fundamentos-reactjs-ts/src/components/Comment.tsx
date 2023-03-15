@@ -1,8 +1,9 @@
+import { ThumbsUp, Trash } from "phosphor-react";
 import { useState } from "react";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-interface CommentProps{
+interface CommentProps {
   content: string;
   deleteComment: (comment: string) => void;
 }
@@ -10,14 +11,13 @@ export function Comment({ content, deleteComment }: CommentProps) {
   const [likeCount, setLikeCount] = useState(0);
   function handleDeleteComment() {
     console.log("deletar");
-     deleteComment(content);
+    deleteComment(content);
   }
 
   function hadleLikeComment() {
     setLikeCount((state) => {
       return state + 1;
     });
-
   }
   return (
     <div className={styles.comment}>
@@ -33,14 +33,15 @@ export function Comment({ content, deleteComment }: CommentProps) {
               </time>
             </div>
             <button onClick={handleDeleteComment} title="Deletar comentário">
-              Excluir
+              <Trash size={24} />
             </button>
           </header>
           <p>{content}</p>
         </div>
         <footer onClick={hadleLikeComment}>
           <button>
-            Aplaudir <span>{likeCount}</span>
+            <ThumbsUp /> 
+           <span>{likeCount}</span>
           </button>
         </footer>
       </div>
